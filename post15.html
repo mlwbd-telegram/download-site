@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Ready - MLWBD-Telegram</title>
+    <meta name="description" content="Your download is being prepared. Please wait while we generate your secure download link.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <!-- ============================================ -->
+    <!-- ADSTERRA POPUNDER AD - JS SYNC (NO ADBLOCK BYPASS) -->
+    <!-- Place right before closing </head> tag for best results -->
+    <!-- ============================================ -->
+    <script type="text/javascript" src="https://pl28296939.effectivegatecpm.com/f4/da/62/f4da623c4243a5e7ca964bd21163bb1e.js"></script>
+    <!-- ============================================ -->
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
+        }
+
+        /* BRAND HEADER */
+        .brand-header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            padding: 20px 15px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .brand-logo {
+            font-family: 'Tomorrow', sans-serif;
+            font-size: 28px;
+            font-weight: 900;
+            color: #ffffff;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 5px;
+        }
+
+        .brand-subtitle {
+            font-size: 12px;
+            color: #94a3b8;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        /* TOP AD */
+        .ad-top {
+            background: #1e293b;
+            border: none;
+            border-radius: 10px;
+            min-height: 100px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .ad-placeholder {
+            color: #64748b;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        /* MAIN LAYOUT */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 160px 1fr 160px;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        /* SIDE ADS */
+        .ad-side {
+            background: #1e293b;
+            border: none;
+            border-radius: 10px;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: sticky;
+            top: 100px;
+        }
+
+        /* Show/hide ads based on screen size */
+        .ad-desktop-only {
+            display: block;
+        }
+
+        .ad-mobile-only {
+            display: none;
+        }
+
+        /* CENTER CONTENT */
+        .content-center {
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 30px 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .content-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .content-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 10px;
+        }
+
+        .content-subtitle-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 12px;
+        }
+
+        .content-subtitle {
+            font-size: 14px;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* COUNTDOWN SECTION */
+        .countdown-section {
+            text-align: center;
+            padding: 30px 15px;
+        }
+
+        .countdown-text {
+            font-size: 16px;
+            color: #475569;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .timer {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: #ffffff;
+            font-size: 48px;
+            font-weight: 700;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            box-shadow: 0 15px 40px rgba(220, 38, 38, 0.4);
+            margin: 15px 0;
+            position: relative;
+        }
+
+        .timer::after {
+            content: '';
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            border: 3px solid rgba(220, 38, 38, 0.2);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.1);
+                opacity: 0;
+            }
+        }
+
+        .timer-label {
+            font-size: 14px;
+            color: #64748b;
+            margin-top: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-box {
+            background: #f1f5f9;
+            border-left: 4px solid #dc2626;
+            padding: 18px;
+            border-radius: 8px;
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .info-box p {
+            color: #475569;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* SCROLL SPACER */
+        .scroll-spacer {
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+        }
+
+        .scroll-indicator {
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .scroll-arrow {
+            font-size: 48px;
+            animation: bounce 2s infinite;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .scroll-text {
+            font-size: 16px;
+            opacity: 0.9;
+            font-weight: 600;
+        }
+
+        /* DOWNLOAD SECTION */
+        .download-section {
+            display: none;
+            text-align: center;
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 35px 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .download-section.visible {
+            display: block;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .download-ready {
+            font-size: 24px;
+            font-weight: 700;
+            color: #10b981;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .check-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: #10b981;
+            color: #ffffff;
+            border-radius: 50%;
+            font-size: 24px;
+        }
+
+        .download-info {
+            color: #64748b;
+            margin-bottom: 30px;
+            font-size: 15px;
+            line-height: 1.7;
+            padding: 0 10px;
+        }
+
+        .download-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 700;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .download-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.5);
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+        }
+
+        .download-button:active {
+            transform: translateY(-1px);
+        }
+
+        .download-icon {
+            font-size: 24px;
+        }
+
+        .security-badges {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #64748b;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 10px 18px;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 50px;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-color: #cbd5e1;
+        }
+
+        .badge-icon {
+            font-size: 20px;
+        }
+
+        /* BOTTOM AD */
+        .ad-bottom {
+            background: #1e293b;
+            border: none;
+            border-radius: 10px;
+            min-height: 100px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* FOOTER */
+        footer {
+            background: rgba(30, 41, 59, 0.95);
+            border-radius: 12px;
+            padding: 25px 20px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .disclaimer {
+            font-size: 13px;
+            color: #94a3b8;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .copyright {
+            font-size: 12px;
+            color: #64748b;
+            padding-top: 15px;
+            border-top: 1px solid #334155;
+        }
+
+        /* TABLET RESPONSIVE */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .ad-side {
+                position: static;
+                min-height: 250px;
+                margin-bottom: 15px;
+            }
+
+            .content-center {
+                padding: 40px 30px;
+            }
+        }
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+            .brand-logo {
+                font-size: 22px;
+                letter-spacing: 1px;
+            }
+
+            .brand-subtitle {
+                font-size: 10px;
+                letter-spacing: 1.5px;
+            }
+
+            .main-layout {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .ad-side {
+                position: static;
+                min-height: 250px;
+                margin-bottom: 0;
+            }
+
+            /* Show mobile ads, hide desktop ads */
+            .ad-desktop-only {
+                display: none;
+            }
+
+            .ad-mobile-only {
+                display: block;
+            }
+
+            .content-center {
+                border-radius: 12px;
+                padding: 25px 18px;
+            }
+
+            .content-title {
+                font-size: 20px;
+            }
+
+            .content-subtitle-title {
+                font-size: 18px;
+            }
+
+            .content-subtitle {
+                font-size: 13px;
+            }
+
+            .countdown-section {
+                padding: 25px 10px;
+            }
+
+            .countdown-text {
+                font-size: 15px;
+                margin-bottom: 20px;
+            }
+
+            .timer {
+                width: 110px;
+                height: 110px;
+                font-size: 44px;
+            }
+
+            .timer::after {
+                width: 130px;
+                height: 130px;
+            }
+
+            .timer-label {
+                font-size: 13px;
+            }
+
+            .info-box {
+                padding: 15px;
+                margin-top: 25px;
+            }
+
+            .info-box p {
+                font-size: 13px;
+            }
+
+            .scroll-spacer {
+                min-height: 35vh;
+            }
+
+            .scroll-arrow {
+                font-size: 40px;
+            }
+
+            .scroll-text {
+                font-size: 15px;
+            }
+
+            .download-section {
+                border-radius: 12px;
+                padding: 30px 18px;
+            }
+
+            .download-ready {
+                font-size: 20px;
+            }
+
+            .check-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 22px;
+            }
+
+            .download-info {
+                font-size: 14px;
+                padding: 0 5px;
+            }
+
+            .download-button {
+                width: 100%;
+                padding: 16px 30px;
+                font-size: 16px;
+            }
+
+            .security-badges {
+                margin-top: 25px;
+                gap: 15px;
+            }
+
+            .badge {
+                font-size: 13px;
+                padding: 8px 15px;
+            }
+
+            .badge-icon {
+                font-size: 18px;
+            }
+
+            .ad-top,
+            .ad-bottom {
+                min-height: 90px;
+                margin-bottom: 15px;
+            }
+
+            .ad-placeholder {
+                font-size: 12px;
+            }
+
+            footer {
+                padding: 20px 15px;
+            }
+
+            .disclaimer {
+                font-size: 12px;
+            }
+
+            .copyright {
+                font-size: 11px;
+            }
+        }
+
+        /* SMALL MOBILE */
+        @media (max-width: 400px) {
+            .brand-logo {
+                font-size: 20px;
+            }
+
+            .brand-subtitle {
+                font-size: 9px;
+            }
+
+            .content-center {
+                padding: 20px 15px;
+            }
+
+            .content-title {
+                font-size: 18px;
+            }
+
+            .content-subtitle-title {
+                font-size: 16px;
+            }
+
+            .timer {
+                width: 100px;
+                height: 100px;
+                font-size: 40px;
+            }
+
+            .timer::after {
+                width: 120px;
+                height: 120px;
+            }
+
+            .download-button {
+                font-size: 15px;
+                padding: 15px 25px;
+            }
+
+            .badge {
+                font-size: 12px;
+                padding: 7px 12px;
+            }
+
+            .badge-icon {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- BRAND HEADER -->
+    <div class="brand-header">
+        <div class="brand-logo">MLWBD-TELEGRAM</div>
+        <div class="brand-subtitle">The Entertainment World</div>
+    </div>
+
+    <div class="container">
+        <!-- TOP AD SECTION -->
+        <!-- ============================================ -->
+        <!-- TOP AD HERE - 728x90 -->
+        <!-- ============================================ -->
+        <div class="ad-top">
+            <script type="text/javascript">
+                atOptions = {
+                    'key' : '558f930005d8457a8e8db1ac7e4a40d9',
+                    'format' : 'iframe',
+                    'height' : 90,
+                    'width' : 728,
+                    'params' : {}
+                };
+            </script>
+            <script type="text/javascript" src="https://www.highperformanceformat.com/558f930005d8457a8e8db1ac7e4a40d9/invoke.js"></script>
+        </div>
+        <!-- ============================================ -->
+
+        <!-- MAIN LAYOUT -->
+        <div class="main-layout">
+            <!-- LEFT AD SECTION -->
+            <!-- ============================================ -->
+            <!-- RESPONSIVE AD - 160x600 (Desktop) / 300x250 (Mobile) -->
+            <!-- ============================================ -->
+            <div class="ad-side">
+                <!-- Desktop Ad: 160x600 -->
+                <div class="ad-desktop-only">
+                    <script type="text/javascript">
+                        atOptions = {
+                            'key' : 'feabc728e9470867449081a85e64fe88',
+                            'format' : 'iframe',
+                            'height' : 600,
+                            'width' : 160,
+                            'params' : {}
+                        };
+                    </script>
+                    <script type="text/javascript" src="https://www.highperformanceformat.com/feabc728e9470867449081a85e64fe88/invoke.js"></script>
+                </div>
+                
+                <!-- Mobile Ad: 300x250 -->
+                <div class="ad-mobile-only">
+                    <script type="text/javascript">
+                        atOptions = {
+                            'key' : '013f97be272a456ca7ea2fbaeda50428',
+                            'format' : 'iframe',
+                            'height' : 250,
+                            'width' : 300,
+                            'params' : {}
+                        };
+                    </script>
+                    <script type="text/javascript" src="https://www.highperformanceformat.com/013f97be272a456ca7ea2fbaeda50428/invoke.js"></script>
+                </div>
+            </div>
+            <!-- ============================================ -->
+
+            <!-- CENTER CONTENT -->
+            <div class="content-center">
+                <div class="content-header">
+                    <h1 class="content-title">#POST 5</h1>
+                    <h2 class="content-subtitle-title">Your Download Is Being Prepared</h2>
+                    <p class="content-subtitle">Please wait while we generate your secure download link. This process ensures fast and safe downloads for all users.</p>
+                </div>
+
+                <div class="countdown-section">
+                    <p class="countdown-text">&#9203; Preparing your download link...</p>
+                    <div class="timer" id="timer">15</div>
+                    <p class="timer-label">Seconds Remaining</p>
+                    
+                    <div class="info-box">
+                        <p><strong>&#8505;&#65039; Please Note:</strong> This waiting time helps us maintain server quality and provide you with fast, secure downloads. Your link will be ready shortly!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT AD SECTION -->
+            <!-- ============================================ -->
+            <!-- RESPONSIVE AD - 160x600 (Desktop) / 300x250 (Mobile) -->
+            <!-- ============================================ -->
+            <div class="ad-side">
+                <!-- Desktop Ad: 160x600 -->
+                <div class="ad-desktop-only">
+                    <script type="text/javascript">
+                        atOptions = {
+                            'key' : 'feabc728e9470867449081a85e64fe88',
+                            'format' : 'iframe',
+                            'height' : 600,
+                            'width' : 160,
+                            'params' : {}
+                        };
+                    </script>
+                    <script type="text/javascript" src="https://www.highperformanceformat.com/feabc728e9470867449081a85e64fe88/invoke.js"></script>
+                </div>
+                
+                <!-- Mobile Ad: 300x250 -->
+                <div class="ad-mobile-only">
+                    <script type="text/javascript">
+                        atOptions = {
+                            'key' : '013f97be272a456ca7ea2fbaeda50428',
+                            'format' : 'iframe',
+                            'height' : 250,
+                            'width' : 300,
+                            'params' : {}
+                        };
+                    </script>
+                    <script type="text/javascript" src="https://www.highperformanceformat.com/013f97be272a456ca7ea2fbaeda50428/invoke.js"></script>
+                </div>
+            </div>
+            <!-- ============================================ -->
+        </div>
+
+        <!-- SCROLL SPACER -->
+        <div class="scroll-spacer">
+            <div class="scroll-indicator">
+                <span class="scroll-arrow">&#8595;</span>
+                <p class="scroll-text">Scroll down to continue</p>
+            </div>
+        </div>
+
+        <!-- DOWNLOAD SECTION (Hidden initially) -->
+        <div class="download-section" id="downloadSection">
+            <div class="download-ready">
+                <span class="check-icon">&#10003;</span>
+                <span>Download Link Ready!</span>
+            </div>
+            <p class="download-info">Your download link has been generated successfully. Click the button below to proceed to the download page.</p>
+            
+            <!-- ============================================ -->
+            <!-- DOWNLOAD BUTTON -->
+            <!-- Change the href URL below to your SHORTENER LINK -->
+            <!-- Example: https://your-shortener.com/abc123 -->
+            <!-- ============================================ -->
+            <a href="https://example.com/demo-download-link" class="download-button" id="downloadBtn" target="_blank" rel="noopener noreferrer">
+                <span class="download-icon">&#11015;</span>
+                <span>Get Download Link</span>
+            </a>
+            <!-- ============================================ -->
+            
+            <div class="security-badges">
+                <div class="badge">
+                    <span class="badge-icon">&#128274;</span>
+                    <span>Secure Link</span>
+                </div>
+                <div class="badge">
+                    <span class="badge-icon">&#9889;</span>
+                    <span>Fast Server</span>
+                </div>
+                <div class="badge">
+                    <span class="badge-icon">&#10003;</span>
+                    <span>Verified Safe</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- BOTTOM AD SECTION -->
+        <!-- ============================================ -->
+        <!-- BOTTOM AD HERE - 728x90 -->
+        <!-- ============================================ -->
+        <div class="ad-bottom">
+            <script type="text/javascript">
+                atOptions = {
+                    'key' : '558f930005d8457a8e8db1ac7e4a40d9',
+                    'format' : 'iframe',
+                    'height' : 90,
+                    'width' : 728,
+                    'params' : {}
+                };
+            </script>
+            <script type="text/javascript" src="https://www.highperformanceformat.com/558f930005d8457a8e8db1ac7e4a40d9/invoke.js"></script>
+        </div>
+        <!-- ============================================ -->
+
+        <!-- FOOTER -->
+        <footer>
+            <p class="disclaimer">
+                <strong>&#9888;&#65039; Disclaimer:</strong> All files are hosted on third-party services. We do not store any files on our servers. 
+                By proceeding with the download, you agree to comply with all applicable laws and the terms of service of the file hosting platform.
+            </p>
+            <p class="copyright">&copy; 2026 MLWBD-Telegram. All rights reserved. | The Entertainment World</p>
+        </footer>
+    </div>
+
+    <script>
+        // ============================================
+        // COUNTDOWN TIMER CONFIGURATION
+        // Change the number below to set countdown time (in seconds)
+        // Example: 15, 20, 30, 45, 60
+        // ============================================
+        let timeLeft = 15;
+        // ============================================
+
+        const timerElement = document.getElementById('timer');
+        const downloadSection = document.getElementById('downloadSection');
+        
+        const countdown = setInterval(function() {
+            timeLeft--;
+            timerElement.textContent = timeLeft;
+            
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                timerElement.textContent = 'âœ“';
+                timerElement.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
+                
+                // Show download section
+                downloadSection.classList.add('visible');
+                
+                // Smooth scroll to download section
+                setTimeout(function() {
+                    downloadSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 400);
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
