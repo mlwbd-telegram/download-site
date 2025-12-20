@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Download File</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 520px;
+      margin: 20px auto;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    h2, h3 {
+      margin-top: 0;
+    }
+
+    #timer {
+      font-size: 18px;
+      color: #e63946;
+      margin: 15px 0;
+    }
+
+    .ads {
+      margin: 25px 0;
+    }
+
+    .spacer {
+      height: 700px;
+    }
+
+    #downloadBox {
+      display: none;
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 10px;
+      margin: 20px auto;
+      max-width: 520px;
+    }
+
+    .download-btn {
+      display: inline-block;
+      padding: 16px 30px;
+      background: #28a745;
+      color: #ffffff;
+      font-size: 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-top: 15px;
+    }
+
+    .download-btn:hover {
+      background: #218838;
+    }
+
+    .note {
+      font-size: 14px;
+      color: #555;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 🔝 TOP SECTION -->
+  <div class="container">
+    <h2>Your download is being prepared</h2>
+    <p id="timer">Please wait 15 seconds</p>
+
+    <div class="ads">
+      <!-- 🔥 PASTE YOUR ADSTERRA BANNER / SOCIAL BAR CODE HERE -->
+    </div>
+  </div>
+
+  <!-- ⬇️ SCROLL SPACE -->
+  <div class="spacer"></div>
+
+  <!-- ✅ DOWNLOAD SECTION -->
+  <div id="downloadBox">
+    <h3>Download Link Ready</h3>
+
+    <a
+      id="downloadBtn"
+      class="download-btn"
+      href="#"
+      target="_blank"
+      rel="nofollow noopener"
+    >
+      ⬇️ Get Download Link
+    </a>
+
+    <p class="note">
+      You may be asked to complete a short verification step.
+    </p>
+  </div>
+
+  <!-- ⚙️ SCRIPT -->
+  <script>
+    let timeLeft = 15;
+
+    /*
+      🔗 STEP 1:
+      এখানে Shortener link বসাও
+      (Shortener destination = Terrabox link)
+    */
+    let shortenerLink = "https://shrinkme.click/V72q";
+
+    let countdown = setInterval(function () {
+      timeLeft--;
+      document.getElementById("timer").innerText =
+        "Please wait " + timeLeft + " seconds";
+
+      if (timeLeft <= 0) {
+        clearInterval(countdown);
+        document.getElementById("timer").innerText =
+          "Scroll down to get your download link";
+        document.getElementById("downloadBox").style.display = "block";
+        document.getElementById("downloadBtn").href = shortenerLink;
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
