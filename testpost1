@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastDL Hub - Fast Download Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1628 100%);
+            min-height: 100vh;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00d4ff 0%, #0099ff 50%, #0066ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(0, 153, 255, 0.3);
+        }
+
+        .ad-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px auto;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .ad-banner-top {
+            width: 728px;
+            height: 90px;
+            max-width: 100%;
+        }
+
+        .ad-banner-bottom {
+            width: 728px;
+            height: 90px;
+            max-width: 100%;
+        }
+
+        .ad-side-pc {
+            width: 160px;
+            height: 600px;
+            display: none;
+        }
+
+        .ad-side-mobile {
+            width: 300px;
+            height: 250px;
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .ad-side-pc {
+                display: block;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .ad-side-mobile {
+                display: block;
+            }
+            .ad-banner-top, .ad-banner-bottom {
+                width: 320px;
+                height: 50px;
+            }
+        }
+
+        .main-card {
+            max-width: 600px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 100, 255, 0.2);
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #00d4ff 0%, #0099ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .input-field:focus {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: #0099ff;
+            box-shadow: 0 0 20px rgba(0, 153, 255, 0.3);
+        }
+
+        .input-field::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #0099ff 0%, #0066ff 100%);
+            border: none;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 100, 255, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(0, 100, 255, 0.6);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .verification-section {
+            display: none;
+            text-align: center;
+            margin: 30px 0;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .verification-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .verification-text {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #00d4ff;
+        }
+
+        .verify-box {
+            display: inline-block;
+            padding: 40px;
+            background: rgba(0, 153, 255, 0.1);
+            border: 2px dashed rgba(0, 153, 255, 0.3);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .verify-box:hover {
+            background: rgba(0, 153, 255, 0.15);
+            border-color: rgba(0, 153, 255, 0.5);
+        }
+
+        .countdown-section {
+            display: none;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .countdown-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .countdown-text {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #00d4ff;
+        }
+
+        .countdown-number {
+            font-size: 5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00d4ff 0%, #0066ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: pulse 1s ease infinite;
+        }
+
+        .download-section {
+            display: none;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .download-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 18px 50px;
+            background: linear-gradient(135deg, #00ff88 0%, #00cc66 100%);
+            color: #0a0e27;
+            text-decoration: none;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 255, 136, 0.6);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 767px) {
+            .logo {
+                font-size: 2rem;
+            }
+            .main-card {
+                padding: 25px;
+            }
+            .card-title {
+                font-size: 1.5rem;
+            }
+            .countdown-number {
+                font-size: 4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="logo">FastDL Hub</h1>
+        </header>
+
+        <div class="ad-container ad-banner-top">
+            <!-- Top Banner Ad: 728x90 (Desktop) / 320x50 (Mobile) -->
+            <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.3);font-size:0.9rem;">Ad Space 728x90</div>
+        </div>
+
+        <div class="ad-container">
+            <!-- Secondary Ad: 160x600 (Desktop) / 300x250 (Mobile) -->
+            <div class="ad-side-pc" style="display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.3);font-size:0.9rem;">Ad 160x600</div>
+            <div class="ad-side-mobile" style="display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.3);font-size:0.9rem;">Ad 300x250</div>
+        </div>
+
+        <div class="main-card">
+            <h2 class="card-title">Link Generator</h2>
+            
+            <div id="inputSection">
+                <div class="input-group">
+                    <input type="text" id="linkInput" class="input-field" placeholder="Paste your link here...">
+                </div>
+                <button class="btn" id="generateBtn">Generate Download Link</button>
+            </div>
+
+            <div class="verification-section" id="verificationSection">
+                <p class="verification-text">Please verify you are human to continue</p>
+                <div class="verify-box" id="verifyBox">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#00d4ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <p style="margin-top:10px;color:#00d4ff;font-weight:600;">Click to verify</p>
+                </div>
+            </div>
+
+            <div class="countdown-section" id="countdownSection">
+                <p class="countdown-text">Preparing your download...</p>
+                <div class="countdown-number" id="countdownNumber">15</div>
+            </div>
+
+            <div class="download-section" id="downloadSection">
+                <a href="#" class="download-btn" id="downloadBtn">Download Now</a>
+            </div>
+        </div>
+
+        <div class="ad-container">
+            <!-- Center Ad: 160x600 (Desktop) / 300x250 (Mobile) -->
+            <div class="ad-side-pc" style="display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.3);font-size:0.9rem;">Ad 160x600</div>
+            <div class="ad-side-mobile" style="display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.3);font-size:0.9rem;">Ad 300x250</div>
+        </div>
+
+        <div class="ad-container ad-banner-bottom">
+            <!-- Bottom Banner Ad: 728x90 -->
+            <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.3);font-size:0.9rem;">Ad Space 728x90</div>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 FastDL Hub. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        const linkInput = document.getElementById('linkInput');
+        const generateBtn = document.getElementById('generateBtn');
+        const verificationSection = document.getElementById('verificationSection');
+        const verifyBox = document.getElementById('verifyBox');
+        const countdownSection = document.getElementById('countdownSection');
+        const countdownNumber = document.getElementById('countdownNumber');
+        const downloadSection = document.getElementById('downloadSection');
+        const inputSection = document.getElementById('inputSection');
+
+        let countdownInterval;
+
+        generateBtn.addEventListener('click', function() {
+            const link = linkInput.getAttribute('value') || linkInput.value.trim();
+            
+            if (!link) {
+                alert('Please paste a link first!');
+                return;
+            }
+
+            generateBtn.disabled = true;
+            linkInput.disabled = true;
+            verificationSection.classList.add('active');
+        });
+
+        verifyBox.addEventListener('click', function() {
+            verificationSection.classList.remove('active');
+            countdownSection.classList.add('active');
+            startCountdown();
+        });
+
+        function startCountdown() {
+            let timeLeft = 15;
+            countdownNumber.textContent = timeLeft;
+
+            countdownInterval = setInterval(function() {
+                timeLeft--;
+                countdownNumber.textContent = timeLeft;
+
+                if (timeLeft <= 0) {
+                    clearInterval(countdownInterval);
+                    countdownSection.classList.remove('active');
+                    downloadSection.classList.add('active');
+                }
+            }, 1000);
+        }
+    </script>
+
+    <!-- Popunder Ad Placeholder -->
+    <!-- 
+    <script>
+        // Insert Adsterra or other popunder script here
+        // Example: Adsterra popunder code
+    </script>
+    -->
+</body>
+</html>
