@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mila River - Intelligent Flow of Innovation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy-dark: #0a0f2c;
+            --midnight-blue: #0c1445;
+            --river-blue: #00f0ff;
+            --cyan-accent: #00ffff;
+            --text-light: rgba(255, 255, 255, 0.9);
+            --text-secondary: rgba(255, 255, 255, 0.7);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--midnight-blue) 100%);
+            color: var(--text-light);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .glass-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem 2rem;
+            backdrop-filter: blur(10px);
+            background: rgba(12, 20, 69, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--river-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--river-blue);
+            background: rgba(0, 240, 255, 0.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, var(--river-blue), var(--cyan-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .glass-button {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .glass-button:hover {
+            background: rgba(0, 240, 255, 0.2);
+            border-color: var(--river-blue);
+            transform: translateY(-2px);
+        }
+
+        .glass-button.primary {
+            background: rgba(0, 240, 255, 0.15);
+            border-color: var(--river-blue);
+        }
+
+        .glass-button.primary:hover {
+            background: rgba(0, 240, 255, 0.25);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, var(--river-blue), var(--cyan-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .glass-card {
+            backdrop-filter: blur(10px);
+            background: rgba(12, 20, 69, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--river-blue);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--river-blue);
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .card-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Features Section */
+        .features {
+            margin-top: 4rem;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--river-blue);
+        }
+
+        .feature-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .feature-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 4rem;
+        }
+
+        .footer-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--river-blue), var(--cyan-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-text {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .glass-button {
+                width: 100%;
+                max-width: 280px;
+            }
+            
+            .grid-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 0 1rem;
+            }
+            
+            .main-content {
+                padding: 4rem 1rem;
+            }
+            
+            .glass-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <div class="brand">Mila River</div>
+            <div class="nav-links">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#solutions" class="nav-link">Solutions</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title fade-in">Mila River</h1>
+            <p class="hero-subtitle fade-in">Intelligent Flow of Innovation</p>
+            <div class="cta-buttons fade-in">
+                <button class="glass-button primary">Get Started</button>
+                <button class="glass-button">Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Features Section -->
+        <section class="features" id="features">
+            <h2 class="section-title fade-in">Core Features</h2>
+            <div class="grid-cards">
+                <div class="glass-card fade-in">
+                    <div class="card-icon">🤖</div>
+                    <h3 class="card-title">AI-Powered Insights</h3>
+                    <p class="card-description">Advanced artificial intelligence that transforms your data into actionable insights and strategic advantages.</p>
+                </div>
+                <div class="glass-card fade-in">
+                    <div class="card-icon">⚡</div>
+                    <h3 class="card-title">Real-time Processing</h3>
+                    <p class="card-description">Instant data analysis and processing capabilities that scale with your business needs.</p>
+                </div>
+                <div class="glass-card fade-in">
+                    <div class="card-icon">🔒</div>
+                    <h3 class="card-title">Enterprise Security</h3>
+                    <p class="card-description">Military-grade security protocols protecting your data and ensuring compliance standards.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solutions Section -->
+        <section class="solutions" id="solutions">
+            <h2 class="section-title fade-in">Our Solutions</h2>
+            <div class="feature-list">
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Business Analytics</h3>
+                    <p class="feature-desc">Transform raw data into meaningful insights that drive business growth and strategic decisions.</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">🌐</div>
+                    <h3 class="feature-title">Cloud Integration</h3>
+                    <p class="feature-desc">Seamlessly connect your systems with scalable cloud solutions designed for modern enterprises.</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">🔄</div>
+                    <h3 class="feature-title">Workflow Automation</h3>
+                    <p class="feature-desc">Streamline operations with intelligent automation that adapts to your unique business processes.</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">📱</div>
+                    <h3 class="feature-title">Mobile Solutions</h3>
+                    <p class="feature-desc">Access your data and tools anywhere with our responsive mobile-first applications.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about" id="about">
+            <h2 class="section-title fade-in">About Mila River</h2>
+            <div class="grid-cards">
+                <div class="glass-card fade-in">
+                    <h3 class="card-title">Our Vision</h3>
+                    <p class="card-description">We envision a world where technology flows seamlessly, connecting businesses and empowering innovation through intelligent digital solutions.</p>
+                </div>
+                <div class="glass-card fade-in">
+                    <h3 class="card-title">Our Mission</h3>
+                    <p class="card-description">To create elegant, powerful solutions that help businesses navigate digital transformation with confidence and achieve sustainable growth.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-brand">Mila River</div>
+        <p class="footer-text">Intelligent Flow of Innovation</p>
+        <p class="footer-text">© 2025 Mila River. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Scroll animation observer
+        function observeScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            // Observe all fade-in elements
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            observeScrollAnimations();
+        });
+    </script>
+</body>
+</html>
